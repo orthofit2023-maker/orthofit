@@ -1,4 +1,4 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/orthofit/dev.orthofit.in/
+    - export DEPLOYPATH=/home/orthofit/public_html/staging/
     - /bin/cp -R * $DEPLOYPATH
