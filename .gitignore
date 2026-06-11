@@ -1,0 +1,11 @@
+backup-29052024/
+*.zip
+*.daf
+*.sql
+
+wp-content/backups-dup-lite/
+wp-content/ai1wm-backups/
+
+*.mp4
+*.mov
+*.avi

@@ -1,0 +1,12 @@
+<?php 
+session_start();
+if(!isset($_SESSION['loginid'])){
+	header("location:login.php");
+}
+include("db5conn.php");
+$filetitle='Authors';
+$opt='8';
+$newfile="forwhom.php";
+$retufile="forwhoms.php";
+include("option.php");
+?>

@@ -1,0 +1,12 @@
+<?php 
+session_start();
+if(!isset($_SESSION['loginid'])){
+	header("location:login.php");
+}
+include("db5conn.php");
+$filetitle='Occasion';
+$opt='10';
+$newfile="occasion.php";
+$retufile="occasions.php";
+include("option.php");
+?>

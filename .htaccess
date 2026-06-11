@@ -1,0 +1,31 @@
+Options +FollowSymlinks
+RewriteEngine on
+
+RewriteBase /
+
+
+RewriteCond %{HTTPS} off
+# First rewrite to HTTPS:
+# Don't put www. here. If it is already there it will be included, if not
+# the subsequent rule will catch it.
+RewriteCond %{HTTP_HOST} !orthofitmart\.wellforte\.com$ [NC] 
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^orthofit.in [NC]
+RewriteRule ^(.*)$ https://www.orthofit.in/$1 [L,R=301,NC]
+
+#RewriteRule ^search/(.*)$ /search?q=$1 [R=301,NC,L]
+
+#RewriteRule ^contact storelocator
+
+# If the requested URI does not contain a period in the final path-part
+RewriteCond %{REQUEST_URI} !(\.[^./]+)$
+# and if it does not exist as a directory
+RewriteCond %{REQUEST_fileNAME} !-d
+# and if it does not exist as a file
+RewriteCond %{REQUEST_fileNAME} !-f
+# then add .php to get the actual filename
+
+RewriteRule ^(.*)$ index.php?opt=$1&%{QUERY_STRING}
+
+RewriteRule ^sitemap.xml sitemap.php

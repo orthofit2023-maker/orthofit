@@ -1,0 +1,12 @@
+<?php 
+session_start();
+if(!isset($_SESSION['loginid'])){
+	header("location:login.php");
+}
+include("db5conn.php");
+$filetitle='Category';
+$opt='2';
+$newfile="cat.php";
+$retufile="cats.php";
+include("option.php");
+?>
